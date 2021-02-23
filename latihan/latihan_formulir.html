@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Latihan Formulir</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+	<h1>Formulir</h1>
+	<form>
+	<fieldset>
+		<legend>Data Pribadi</legend>
+		<!-- Nama -->
+			<label for="nama">Nama</label><br>
+			<input type="text" name="nama" id="nama"><br>
+
+		<!-- Jenis Kelamin -->
+			<label for="jenis_kelamin">Jenis Kelamin</label><br>
+			<input type="radio" name="jenis_kelamin" id="jenis_kelamin">Laki-laki
+			<input type="radio" name="jenis_kelamin" id="jenis_kelamin">Perempuan
+			<br>
+
+		<!-- Agama -->
+			<label for="agama">Agama</label><br>
+			<select id="agama">
+				<option>Islam</option>
+				<option>Kristen</option>
+				<option>Buddha</option>
+				<option>Hindu</option>
+				<option>Konghucu</option>
+			</select><br>
+		<!-- Tempat Lahir -->
+			<label for="tempat_lahir">Tempat Lahir</label><br>
+			<input type="text" name="tempat_lahir" id="tempat_lahir"><br>
+
+		<!-- Tanggal Lahir -->
+			<label for="tanggal_lahir">Tanggal Lahir</label><br>
+			<input type="date" name="tanggal_lahir" id="tanggal_lahir"><br>
+
+		<!-- Alamat -->
+			<label for="alamat">Alamat</label><br>
+			<textarea cols="30" rows="10" id="alamat"></textarea>
+	</fieldset><br>
+
+	<fieldset>
+		<legend>Pendidikan</legend>
+		<!-- Pendidikan SD -->
+			<label for="sekola">SD</label><br>
+			<input type="text" name="sekolah" id="sekolah">
+			Masuk <input type="month" name="sekolah" id="sekolah">
+			Lulus <input type="month" name="sekolah" id="sekolah"><br>
+
+		<!-- Pendidikan SMP  -->
+			<label for="sekola">SMP</label><br>
+			<input type="text" name="sekolah" id="sekolah">
+			Masuk <input type="month" name="sekolah" id="sekolah">
+			Lulus <input type="month" name="sekolah" id="sekolah"><br>
+
+		<!-- Pendidikan SMA -->
+			<label for="sekola">SMA</label><br>
+			<input type="text" name="sekolah" id="sekolah">
+			Masuk <input type="month" name="sekolah" id="sekolah">
+			Lulus <input type="month" name="sekolah" id="sekolah"><br>
+
+	</fieldset><br>
+
+
+	<fieldset>
+		<legend>Pelatihan</legend>
+		<!-- Minat -->
+			<label for="minat">Minat</label><br>
+			<input type="checkbox" name="minat" id="minat">HTML
+			<input type="checkbox" name="minat" id="minat">CSS
+			<input type="checkbox" name="minat" id="minat">JavaScript 
+			<br>
+
+		<!-- Kompetensi -->
+		<label for="kompetensi">Kompetensi</label><br>
+			<input type="checkbox" name="kompetensi" id="kompetensi">HTML
+			<input type="checkbox" name="kompetensi" id="kompetensi">CSS
+			<input type="checkbox" name="kompetensi" id="kompetensi">JavaScript
+			<br>
+
+	</fieldset>
+
+		<!-- Button Reset -->
+		<button type="reset" id="button">Reset</button>
+		<!-- Button Submit -->
+		<button type="submit" id="button">Submit</button>
+	</form>
+</body>
+</html>
