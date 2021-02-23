@@ -1,0 +1,33 @@
+.box {
+	display: flex;
+	justify-content: center;
+}
+
+.boxes {
+	display: flex;
+	justify-content: space-between;
+}
+
+.one {
+	width: 200px;
+	height: 200px;
+	background-color: #D86AAF;
+}
+
+.two {
+	width: 200px;
+	height: 200px;
+	background-color: #EBB528;
+}
+
+.three {
+	width: 200px;
+	height: 200px;
+	background-color: #28EB9D;
+}
+
+.four {
+	width: 200px;
+	height: 200px;
+	background-color: #28E6EB;
+}

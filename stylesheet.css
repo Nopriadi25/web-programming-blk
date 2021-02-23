@@ -1,0 +1,59 @@
+/*Margin dan Padding*/
+p {
+	background-color: #9999ff;
+	width: 300px;
+	height: 150px;
+	color: white;
+	border: 2px solid black;
+	padding: 30px 20px;
+	overflow: auto;
+	margin: auto;
+}
+
+.kotak {
+	background-color: pink;
+	width: 300px;
+	height: 300px;
+	border-top: 2px dotted black;
+	border-right: 5px dashed blue;
+	border-bottom: 2px double yellow;
+	border-left: 1px groove gold;
+}
+
+
+/*Box Sizing*/
+.satu {
+	width: 300px;
+	height: 200px;
+	background-color: #ff9999;
+	margin: auto;
+}
+
+.dua {
+	width: 300px;
+	height: 200px;
+	background-color: #99ffcc;
+	padding: 30px;
+	border: 5px solid green;
+}
+
+.tiga {
+	width: 300px;
+	height: 200px;
+	background-color: #99ffff;
+	padding: 30px;
+	border: 5px solid blue;
+	box-sizing: border-box;
+	overflow: auto;
+	margin: auto;
+}
+
+
+/*Link Inline Element jadi Block Element*/
+.link a {
+	width: 200px;
+	height: 50px;
+	background-color: #b399ff;
+	display: block;
+}
+
