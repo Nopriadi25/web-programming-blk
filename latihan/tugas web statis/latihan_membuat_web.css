@@ -1,3 +1,4 @@
+
 body {
 	font-family: sans-serif;
 
@@ -55,7 +56,6 @@ body {
 	margin-top: 150px;
 	margin-left: 235px;
 	position: absolute;
-	text-align: left;
 	font-size: 50px;
 	color: white;
 	font-family: Calibri;
@@ -80,11 +80,9 @@ body {
 	margin-left: 237px;
 }
 
-
 /*Button*/
 .myButton {
-	box-shadow: inset 0px 1px 0px 0px #ffffff;
-	background:linear-gradient(to bottom, #ffffff 5%, #ffffff 100%);
+	outline: none;
 	background-color: #ffffff;
 	border-radius: 25px;
 	border:2px solid #ffffff;
@@ -98,46 +96,74 @@ body {
 	margin-top: 280px;
 	margin-left: 237px;
 	padding: 7px 26px;
-	cursor: pointer;
+	text-align: center;
 	position: relative;
 }
 
 .myButton:hover {
 	background-color: black;
-}
-
-.myButton:active {
-	position: relative;
-	top: 1px;
+	border-radius: 25px;
+	transition: background-color 0.5s ease-out;
 }
 
 /*Container*/
-.container img {
-	width: 30px;
-	height: 30px;
-	padding-left: 100px;	
+.container {
+	margin-top: 35px;
+	margin-left: 236px;
 }
 
+.container a {
+	text-decoration: none;
+	color: white;
+	padding-left: 10px;
+	line-height: 1;
+}
 /*End of Header*/
 
 /*Contents*/
+.contents {
+	margin-top: 75px;
+}
 .contents img {
 	width: 35%;
-	clear: both;
 	float: left;
-	flex-direction: column;
-	justify-content: center;
+
 }
 
 .contents h2 {
-	font-size: 20px;
-	float: center;
+	font-size: 45px;
+	margin-bottom: 50px;
+	padding-top: 50px;
 }
 
 .contents p {
-	float: center;
+	font-size: 25px;
+	margin-top: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 30px;
+}
+
+.contents strong {
+	color: gold;
 }
 /*End of Contents*/
+
+/*Another Contents*/
+.main {
+	margin-top: 300px;
+}
+
+.main h2 {
+	font-size: 45px;
+}
+
+.main img {
+	width: 30%;
+	align-items: right;
+	
+	float: right;
+}
 
 /*Footer*/
 footer {
@@ -148,7 +174,4 @@ footer {
 	color: white;
 }
 
-footer p {
-	text-align: center;
-}
 /*End of Footer*/
