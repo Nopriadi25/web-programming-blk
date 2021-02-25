@@ -1,0 +1,80 @@
+/*For Desktop Version*/
+
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial;
+	text-align: center;
+}
+
+/*Profile*/
+#profile {
+	background-color: lightgrey;
+	padding: 65px;
+}
+
+#profile img {
+	border-radius: 50%;
+	height: 350px;
+}
+
+/*Main*/
+#main {
+	width: 60%;
+	margin: auto;
+}
+
+/*Skills*/
+#skills {
+	display: flex;
+	justify-content: space-between;
+}
+
+/*Card*/
+.card {
+	width: 25%;
+	height: 300px;
+	border: 1px solid lightgrey;
+	overflow: hidden;
+}
+
+.card img {
+	width: 100%;
+}
+
+/*Form*/
+input {
+	width: 100%;
+	margin-top: 20px;
+	height: 30px;
+	background: none;
+	border: 1px solid black;
+}
+
+button {
+	background-color: #009DCE;
+	outline: none;
+	border: 2px;
+	border-radius: 15px;
+	display: inline-block;
+	cursor: pointer;
+	color: white;
+	width: 200px;
+	height: 30px;
+}
+
+button:hover {
+	background-color: #008DB9;
+	border-radius: 25px;
+	transition: background-color 0.5s ease-out;
+}
+
+textarea {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+/*Footer*/
+footer img {
+	margin-right: 20px;
+}
