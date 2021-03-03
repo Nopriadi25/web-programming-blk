@@ -71,12 +71,13 @@ CREATE TABLE IF NOT EXISTS warga (
 DELETE FROM warga;
 
 -- UNTUK MENGHAPUS PRIMARY KEY YANG SEBELUMNYA ADA
-ALTER TABLE warga
 DROP PRIMARY KEY;
-
--- MENAMBAHKAN PRIMARY KEY PADA KOLOM NAMA
+	   
+-- Jika Table double nama	   
 ALTER TABLE warga
-ADD PRIMARY KEY (nama_warga);
+	   
+-- MENAMBAHKAN PRIMARY KEY PADA KOLOM NAMA
+PRIMARY KEY (warga);
 
 -- MEMASUKAN ISI DARI KOLOM NAMA, jenis_kelamin, STATUS
 INSERT INTO warga VALUES
@@ -87,11 +88,61 @@ INSERT INTO warga VALUES
 ("Yani", "wanita", "kawin"),
 ("Endah", "wanita", "cerai");
 
+-- MENAMBAHKAN VIEW PADA PHP ADMIN
+CREATE VIEW vw_warga AS
+SELECT *
+FROM warga;	
+	   
+-- MENGHAPUS VIEW PADA PHP
+DROP VIEW IF EXISTS vw_seluruh_warga;
+
 -- MENAMPILKAN SELURUH KOLOM DAN KOLOM TAMBAHAN (KETERANGAN) YANG SUDAH DIBERI LOGIKA IF
-SELECT *,
+SELECT 	nama,
+		jenis_kelamin,
+		status,
+
 IF(jenis_kelamin="pria",
-	IF(status="sendiri","perjaka",
-IF(status="kawin","MENIKAH","DUDA")),
-IF(status="sendiri","PERAWAN",
-	IF(status="kawin","MENIKAH","JANDA"))) AS keterangan
+	IF(status="sendiri",
+		"PERJAKA",
+		IF(status="kawin",
+			"MENIKAH",
+			"DUDA"
+		)
+	),
+
+	IF(status="sendiri",
+		"PERAWAN",
+		IF(status="kawin",
+			"MENIKAH",
+			"JANDA"
+			)
+		)
+	) AS KETERANGAN_IF,
+
+	CASE jenis_kelamin
+		WHEN "pria" THEN
+		CASE status
+			WHEN "sendiri"	THEN "PERJAKA"
+			WHEN "kawin" 	THEN "MENIKAH"
+			ELSE "DUDA"
+		END
+ELSE	
+		CASE status
+			WHEN "sendiri"	THEN "PERAWAN"
+			WHEN "kawin" 	THEN "MENIKAH"
+			ELSE "JANDA"
+		END
+END AS KETERANGAN_CASE
 FROM warga;
+IF(jenis_kelamin="pria",
+		CASE status
+				WHEN "sendiri"	THEN "PERJAKA"
+				WHEN "kawin" 	THEN "MENIKAH"
+				ELSE "DUDA"
+			END
+		CASE status
+				WHEN "sendiri"	THEN "PERAWAN"
+				WHEN "kawin" 	THEN "MENIKAH"
+				ELSE "JANDA"
+			END		
+)	AS KETERANGAN_IF_CASE
