@@ -5,6 +5,8 @@ CREATE TABLE IF NOT EXISTS nilai (
 	PRIMARY KEY (nama, teori_Nyata, praktek_Nyata)
 );
 
+-- DELETE FROM nilai;
+
 -- INSERT INTO nilai VALUES
 -- ('Mimo', 90, 100),
 -- ('Milo', 80, 85),
@@ -12,46 +14,46 @@ CREATE TABLE IF NOT EXISTS nilai (
 -- ('Krista', 50, 50),
 -- ('Dzakiy', 50, 49);
 
-CREATE VIEW vw_nilai AS
-SELECT *
-FROM nilai;
+-- CREATE VIEW vw_nilai AS
+-- SELECT *
+-- FROM nilai;
 
 SELECT
 	nama,
 	teori_Nyata AS Nilai_Teori_nyata,
-	teori_Nyata*30/100 AS 'Nilai Teori 30%',
+	teori_Nyata*0.3 AS 'Nilai Teori 30%',
 
 	praktek_Nyata AS Nilai_Praktek_nyata,
-	praktek_Nyata*70/100 AS 'Nilai Praktek 70%',
+	praktek_Nyata*0.7 AS 'Nilai Praktek 70%',
 
-	teori_Nyata*30/100 + praktek_Nyata*70/100 AS Total,
+	teori_Nyata*0.3 + praktek_Nyata*0.7 AS Total,
 
 	CASE 
-		WHEN teori_Nyata*30/100 + praktek_Nyata*70/100 > 90
+		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 90
 			THEN 'A'
-		WHEN teori_Nyata*30/100 + praktek_Nyata*70/100 > 80
+		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 80
 			THEN 'B'	
-		WHEN teori_Nyata*30/100 + praktek_Nyata*70/100 > 70
+		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 70
 			THEN 'C'
-		WHEN teori_Nyata*30/100 + praktek_Nyata*70/100 > 50
+		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 50
 			THEN 'D'
 		ELSE 'E'		
 	END AS Grade,
 	
 	CASE
-		WHEN teori_Nyata*30/100 + praktek_Nyata*70/100 > 80
+		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 80
 			THEN 'K'
 		ELSE 'BK'	
 	END AS Kompetensi,
 	
 	CASE
-		WHEN teori_Nyata*30/100 + praktek_Nyata*70/100 > 90
+		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 90
 			THEN 'Memuaskan'		
-		WHEN teori_Nyata*30/100 + praktek_Nyata*70/100 > 80
+		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 80
 			THEN 'Baik'	
-		WHEN teori_Nyata*30/100 + praktek_Nyata*70/100 > 70
+		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 70
 			THEN 'Cukup'	
-		WHEN teori_Nyata*30/100 + praktek_Nyata*70/100 > 50
+		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 50
 			THEN 'Kurang'	
 		ELSE 'Kurang'	
 	END AS Keterangan
