@@ -5,18 +5,22 @@ CREATE TABLE IF NOT EXISTS nilai (
 	PRIMARY KEY (nama, teori_Nyata, praktek_Nyata)
 );
 
--- DELETE FROM nilai;
+-- Untuk menghapus values table
+DELETE FROM nilai;
 
--- INSERT INTO nilai VALUES
--- ('Mimo', 90, 100),
--- ('Milo', 80, 85),
--- ('Molly', 70, 65),
--- ('Krista', 50, 50),
--- ('Dzakiy', 50, 49);
+-- Memasukkan values atau nilai ke dalam table
+INSERT INTO nilai VALUES
+('Mimo', 90, 100),
+('Milo', 80, 85),
+('Molly', 70, 65),
+('Krista', 50, 50),
+('Dzakiy', 50, 49);
 
--- CREATE VIEW vw_nilai AS
--- SELECT *
--- FROM nilai;
+-- Membuat View (Tabel virtual)
+CREATE VIEW vw_nilai AS
+SELECT *
+FROM nilai;
+
 
 SELECT
 	nama,
