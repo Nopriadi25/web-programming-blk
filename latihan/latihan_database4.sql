@@ -1,60 +1,60 @@
 CREATE TABLE IF NOT EXISTS nilai (
 	nama	VARCHAR(12),
-	teori	TINYINT,
-	praktek TINYINT,
-	PRIMARY KEY (nama, teori, praktek)
+	teori_Nyata	TINYINT,
+	praktek_Nyata TINYINT,
+	PRIMARY KEY (nama, teori_Nyata, praktek_Nyata)
 );
 
-INSERT INTO nilai VALUES
-('Mimo', 90, 100),
-('Milo', 80, 85),
-('Molly', 70, 65),
-('Krista', 50, 50),
-('Dzakiy', 50, 49);
+-- INSERT INTO nilai VALUES
+-- ('Mimo', 90, 100),
+-- ('Milo', 80, 85),
+-- ('Molly', 70, 65),
+-- ('Krista', 50, 50),
+-- ('Dzakiy', 50, 49);
 
--- CREATE VIEW vw_nilai AS
--- SELECT *
--- FROM nilai;
+CREATE VIEW vw_nilai AS
+SELECT *
+FROM nilai;
 
 SELECT
-	Nama,
-	Teori AS Nilai_Teori
-	Teori*30/100 AS 'Nilai_Teori 30%',
+	nama,
+	teori_Nyata AS Nilai_Teori_nyata,
+	teori_Nyata*30/100 AS 'Nilai Teori 30%',
 
-	Praktek AS Nilai_Praktek
-	Praktek*70/100 AS 'Nilai_Praktek 70%',
+	praktek_Nyata AS Nilai_Praktek_nyata,
+	praktek_Nyata*70/100 AS 'Nilai Praktek 70%',
 
-	Teori*30/100 + Praktek*70/100 AS Total,
+	teori_Nyata*30/100 + praktek_Nyata*70/100 AS Total,
 
 	CASE 
-		WHEN Teori*30/100 + Praktek*70/100 > 90
+		WHEN teori_Nyata*30/100 + praktek_Nyata*70/100 > 90
 			THEN 'A'
-		WHEN Teori*30/100 + Praktek*70/100 > 80
+		WHEN teori_Nyata*30/100 + praktek_Nyata*70/100 > 80
 			THEN 'B'	
-		WHEN Teori*30/100 + Praktek*70/100 > 70
+		WHEN teori_Nyata*30/100 + praktek_Nyata*70/100 > 70
 			THEN 'C'
-		WHEN Teori*30/100 + Praktek*70/100 > 50
+		WHEN teori_Nyata*30/100 + praktek_Nyata*70/100 > 50
 			THEN 'D'
 		ELSE 'E'		
 	END AS Grade,
 	
 	CASE
-		WHEN Teori*30/100 + Praktek*70/100 > 80
+		WHEN teori_Nyata*30/100 + praktek_Nyata*70/100 > 80
 			THEN 'K'
 		ELSE 'BK'	
 	END AS Kompetensi,
 	
 	CASE
-		WHEN Teori*30/100 + Praktek*70/100 > 90
+		WHEN teori_Nyata*30/100 + praktek_Nyata*70/100 > 90
 			THEN 'Memuaskan'		
-		WHEN Teori*30/100 + Praktek*70/100 > 80
+		WHEN teori_Nyata*30/100 + praktek_Nyata*70/100 > 80
 			THEN 'Baik'	
-		WHEN Teori*30/100 + Praktek*70/100 > 70
+		WHEN teori_Nyata*30/100 + praktek_Nyata*70/100 > 70
 			THEN 'Cukup'	
-		WHEN Teori*30/100 + Praktek*70/100 > 50
+		WHEN teori_Nyata*30/100 + praktek_Nyata*70/100 > 50
 			THEN 'Kurang'	
 		ELSE 'Kurang'	
 	END AS Keterangan
 	
 	FROM nilai
-	ORDER BY Teori DESC;	
+	ORDER BY teori_Nyata DESC;
