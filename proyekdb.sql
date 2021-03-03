@@ -134,6 +134,8 @@ ELSE
 		END
 END AS KETERANGAN_CASE
 FROM warga;
+
+-- Agar mempermudah menggunakan logika IF	   
 IF(jenis_kelamin="pria",
 		CASE status
 				WHEN "sendiri"	THEN "PERJAKA"
