@@ -86,8 +86,6 @@ INSERT INTO warga VALUES
 ("Dea", "wanita", "sendiri"),
 ("Yani", "wanita", "kawin"),
 ("Endah", "wanita", "cerai");
--- ("Endah", "wanita", "cerai"),
--- ("Amin", "pria", "sendiri");
 
 -- MENAMPILKAN SELURUH KOLOM DAN KOLOM TAMBAHAN (KETERANGAN) YANG SUDAH DIBERI LOGIKA IF
 SELECT *,
