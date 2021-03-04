@@ -23,11 +23,15 @@ FROM nilai;
 
 -- Menghapus View (Tabel Virtual)
 DROP VIEW vw_nilai;
+CREATE VIEW vw_nilai AS
+SELECT *
+FROM nilai;
+
 
 -- Cara Instruktur yang lebih mudah
 
 -- Untuk menampilkan Nilai Prosentase
--- DROP VIEW vw_nilai_PersenTP;
+DROP VIEW vw_nilai_PersenTP;
 
 CREATE VIEW vw_nilai_PersenTP AS
 	SELECT 	nama,
@@ -39,20 +43,21 @@ FROM 	nilai;
 
 
 -- Untuk menampilkan Nilai Total
--- -- DROP VIEW vw_nilai_total
+DROP VIEW vw_nilai_total;
 
 CREATE VIEW vw_nilai_total AS
 	SELECT 	nama,
 			teori_Nyata,
 			ProsenTeori,
 			praktek_Nyata,
+			ProsenPraktek,
 			ProsenTeori + ProsenPraktek AS total_nl
 
 FROM 	vw_nilai_PersenTP;
 
 
 -- Untuk menampilkan Nilai Grade
--- DROP VIEW vw_nilai_grade
+DROP VIEW vw_nilai_grade;
 
 CREATE VIEW vw_nilai_grade AS
 	SELECT 	nama,
@@ -67,8 +72,8 @@ CREATE VIEW vw_nilai_grade AS
 FROM vw_nilai_total;
 	
 
--- -- Untuk menampilkan Nilai Kompetensi
--- -- DROP VIEW vw_nilai_kompetensi
+-- Untuk menampilkan Nilai Kompetensi
+DROP VIEW vw_nilai_kompetensi;
 
 CREATE VIEW vw_nilai_kompetensi AS
 	SELECT 	nama,
@@ -78,8 +83,29 @@ CREATE VIEW vw_nilai_kompetensi AS
 			total_nl,
 			grade,
 			IF(total_nl>=80,"K","BK") AS kompetensi
-FROM vw_nilai_grade
+FROM vw_nilai_grade;
 
+
+-- Untuk menampilkan Keterangan
+DROP VIEW vw_keterangan;
+
+CREATE VIEW vw_keterangan AS
+SELECT	nama,
+		teori_Nyata,
+		ProsenTeori,
+		praktek_Nyata,
+
+		total_nl,
+		grade,
+		kompetensi,
+		CASE grade
+			WHEN 'A' THEN 'Memuaskan'
+			WHEN 'B' THEN 'Baik'
+			WHEN 'C' THEN 'Cukup'
+			WHEN 'D' THEN 'Kurang'
+			ELSE'Kurang'
+		END AS keterangan	
+FROM vw_nilai_kompetensi;
 
 
 -- SELECT
