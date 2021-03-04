@@ -21,46 +21,106 @@ CREATE VIEW vw_nilai AS
 SELECT *
 FROM nilai;
 
+-- Menghapus View (Tabel Virtual)
+DROP VIEW vw_nilai;
 
-SELECT
-	nama,
-	teori_Nyata AS Nilai_Teori_nyata,
-	teori_Nyata*0.3 AS 'Nilai Teori 30%',
+-- Cara Instruktur yang lebih mudah
 
-	praktek_Nyata AS Nilai_Praktek_nyata,
-	praktek_Nyata*0.7 AS 'Nilai Praktek 70%',
+-- Untuk menampilkan Nilai Prosentase
+-- DROP VIEW vw_nilai_PersenTP;
 
-	teori_Nyata*0.3 + praktek_Nyata*0.7 AS Total,
+CREATE VIEW vw_nilai_PersenTP AS
+	SELECT 	nama,
+			teori_Nyata,
+			teori_Nyata * 0.3 AS ProsenTeori,
+			praktek_Nyata,
+			praktek_Nyata * 0.7 AS ProsenPraktek
+FROM 	nilai;
 
-	CASE 
-		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 90
-			THEN 'A'
-		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 80
-			THEN 'B'	
-		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 70
-			THEN 'C'
-		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 50
-			THEN 'D'
-		ELSE 'E'		
-	END AS Grade,
+
+-- Untuk menampilkan Nilai Total
+-- -- DROP VIEW vw_nilai_total
+
+CREATE VIEW vw_nilai_total AS
+	SELECT 	nama,
+			teori_Nyata,
+			ProsenTeori,
+			praktek_Nyata,
+			ProsenTeori + ProsenPraktek AS total_nl
+
+FROM 	vw_nilai_PersenTP;
+
+
+-- Untuk menampilkan Nilai Grade
+-- DROP VIEW vw_nilai_grade
+
+CREATE VIEW vw_nilai_grade AS
+	SELECT 	nama,
+			teori_Nyata,
+			ProsenTeori,
+			praktek_Nyata,
+			total_nl,
+			IF(total_nl>= 90,"A",
+				IF(total_nl>= 80,"B",
+					IF(total_nl>= 70,"C",
+						IF(total_nl<= 50,"D","E")))) AS grade
+FROM vw_nilai_total;
 	
-	CASE
-		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 80
-			THEN 'K'
-		ELSE 'BK'	
-	END AS Kompetensi,
+
+-- -- Untuk menampilkan Nilai Kompetensi
+-- -- DROP VIEW vw_nilai_kompetensi
+
+CREATE VIEW vw_nilai_kompetensi AS
+	SELECT 	nama,
+			teori_Nyata,
+			ProsenTeori,
+			praktek_Nyata,
+			total_nl,
+			grade,
+			IF(total_nl>=80,"K","BK") AS kompetensi
+FROM vw_nilai_grade
+
+
+
+-- SELECT
+-- 	nama,
+-- 	teori_Nyata AS Nilai_Teori_nyata,
+-- 	teori_Nyata*0.3 AS 'Nilai Teori 30%',
+
+-- 	praktek_Nyata AS Nilai_Praktek_nyata,
+-- 	praktek_Nyata*0.7 AS 'Nilai Praktek 70%',
+
+-- 	teori_Nyata*0.3 + praktek_Nyata*0.7 AS Total,
+
+-- 	CASE 
+-- 		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 90
+-- 			THEN 'A'
+-- 		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 80
+-- 			THEN 'B'	
+-- 		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 70
+-- 			THEN 'C'
+-- 		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 50
+-- 			THEN 'D'
+-- 		ELSE 'E'		
+-- 	END AS Grade,
 	
-	CASE
-		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 90
-			THEN 'Memuaskan'		
-		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 80
-			THEN 'Baik'	
-		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 70
-			THEN 'Cukup'	
-		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 50
-			THEN 'Kurang'	
-		ELSE 'Kurang'	
-	END AS Keterangan
+-- 	CASE
+-- 		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 80
+-- 			THEN 'K'
+-- 		ELSE 'BK'	
+-- 	END AS Kompetensi,
 	
-	FROM nilai
-	ORDER BY teori_Nyata DESC;
+-- 	CASE
+-- 		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 90
+-- 			THEN 'Memuaskan'		
+-- 		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 80
+-- 			THEN 'Baik'	
+-- 		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 70
+-- 			THEN 'Cukup'	
+-- 		WHEN teori_Nyata*0.3 + praktek_Nyata*0.7 > 50
+-- 			THEN 'Kurang'	
+-- 		ELSE 'Kurang'	
+-- 	END AS Keterangan
+	
+-- 	FROM nilai
+-- 	ORDER BY teori_Nyata DESC;
