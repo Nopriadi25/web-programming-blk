@@ -53,24 +53,25 @@ CREATE VIEW vw_jenis_kelamin AS
 	FROM vw_tgl_pengangkatan;		
 
 -- -- Membuat dan menghapus view no urut
--- DROP VIEW vw_no_urut;
+DROP VIEW vw_no_urut;
 
-CREATE VIEW vw_no_urut; AS
+CREATE VIEW vw_no_urut AS
 	SELECT 	*,
 			RIGHT(nip_pegawai,3) AS No_urut
 	FROM vw_jenis_kelamin;
 
+-- Membuat dan menghapus data pegawai secara keseluruhan
+DROP VIEW vw_data_pegawai;
 
--- CREATE VIEW vw_data_pegawai AS
--- 	SELECT 	nip_pegawai,
--- 			nama_pegawai AS Nama
--- 			DATE_FORMAT(CONCAT(SUBSTRING(nip_pegawai,1,4),"-",SUBSTRING(nip_pegawai,5,2),"-",SUBSTRING(nip_pegawai,7,2)), "%W, %e %M %Y" AS Tanggal_lahir
--- 			DATE_FORMAT(CONCAT(SUBSTRING(nip_pegawai,9,4),"-",SUBSTRING(nip_pegawai,13,2),"-",SUBSTRING(nip_pegawai,7,2)), "%M, %Y" AS Tanggal_pengangkatan
--- 			jenis_kelamin AS 'Jenis Kelamin'	
--- 			no_urut AS 'No Urut'
-
--- Cara lain
-			-- DATE_FORMAT(LEFT(nip_pegawai,8), "%W, %d %M %Y")	AS Lahir
-
-	-- FROM pegawai;
+CREATE VIEW vw_data_pegawai AS
+	SELECT 	nip_pegawai,
+			nama_pegawai,
+			DATE_FORMAT(LEFT(nip_pegawai,8), "%W, %d %M %Y") AS Tanggal_lahir,
+			-- Cara lain
+			-- DATE_FORMAT(CONCAT(SUBSTRING(nip_pegawai,1,4),"-",SUBSTRING(nip_pegawai,5,2),"-",SUBSTRING(nip_pegawai,7,2)),"%W, %e %M %Y") AS Tanggal_lahir,
+			
+			DATE_FORMAT(CONCAT(SUBSTRING(nip_pegawai,9,4),"-",SUBSTRING(nip_pegawai,13,2),"-",SUBSTRING(nip_pegawai,7,2)),"%M, %Y") AS Tanggal_pengangkatan,
+			Jenis_kelamin,
+			No_urut
+	FROM vw_no_urut;
 
