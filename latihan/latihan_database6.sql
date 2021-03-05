@@ -77,19 +77,31 @@ CREATE VIEW vw_data_pegawai AS
 
 
 -- Membuat Database baru
-CREATE DATABASE fungsi_sp;
+-- CREATE DATABASE fungsi_sp;
 
-USE fungsi_sp;
+-- USE fungsi_sp;
 
 -- Membuat Prosedur
+-- DROP PROCEDURE sp_info_pgw_jnskel;
+
 DELIMITER ;;
-CREATE PROCEDURE sp_info_pgw_jnskel (
-	m_jns_kel VARCHAR(6)
+CREATE PROCEDURE IF NOT EXISTS sp_info_pgw_jnskel (
+	mencari_jns_kel VARCHAR(6)
 )
 BEGIN
 	SELECT 	nama_pegawai,
 			Jenis_kelamin
 	FROM 	vw_data_pegawai
-	WHERE Jenis_kelamin = m_jns_kel;
+	WHERE Jenis_kelamin = mencari_jns_kel;
 END;;
-DELIMITER;
+DELIMITER ;
+
+-- -- -- Cara memanggil fungsi
+CALL sp_info_pgw_jnskel('PRIA');
+CALL sp_info_pgw_jnskel('WANITA');
+
+-- Cara lain sederhana memanggil fungsi hanya mengganti values 'WANITA'
+-- SELECT 		nama_pegawai,
+-- 			Jenis_kelamin
+-- 	FROM 	vw_data_pegawai
+-- 	WHERE Jenis_kelamin = 'WANITA';
