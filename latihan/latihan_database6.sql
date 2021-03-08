@@ -11,6 +11,42 @@ CREATE TABLE IF NOT EXISTS pegawai(
 	PRIMARY KEY (nip_pegawai)
 );
 
+
+-- DELIMITER ;;
+-- CREATE PROCEDURE IF NOT EXISTS sp_ins_pegawai ()
+-- BEGIN
+-- 	SELECT 	*
+-- 	FROM 	pegawai;
+-- END;;
+-- DELIMITER ;
+
+-- Menghapus Prosedur Insert pegawai
+-- DROP PROCEDURE sp_ins_pegawai;
+
+-- Menghapus Primrary Key
+DELETE FROM pegawai;
+-- Membuat Prosedure Nama dan NIP Pegawai
+DELIMITER ;;
+CREATE PROCEDURE IF NOT EXISTS sp_ins_pegawai (
+	m_nip_pgw VARCHAR(20),
+	m_nama_pgw VARCHAR(18)
+)
+BEGIN
+	INSERT INTO pegawai VALUES
+	(m_nip_pgw, m_nama_pgw);
+
+	SELECT 	nip_pegawai, nama_pegawai
+	FROM 	pegawai;
+	
+END;;
+DELIMITER ;
+
+-- Cara memanggil fungsi
+CALL sp_ins_pegawai('197209172005011002','Willy P. Johansyah');
+CALL sp_ins_pegawai('198201312010052001','Devi R. Bidari');
+CALL sp_ins_pegawai('200901202015071004','M.N. Dzakiy');
+CALL sp_ins_pegawai('201411142020102003','Erin Eftiana');
+
 -- Menambah dan menghapus isi Tabel Pegawai
 -- -- DROP TABLE pegawai;
 
@@ -77,28 +113,29 @@ CREATE VIEW vw_data_pegawai AS
 
 
 -- Membuat Database baru
--- CREATE DATABASE fungsi_sp;
+-- CREATE DATABASE fungsi_database_sp;
 
 -- USE fungsi_sp;
 
--- Membuat Prosedur
+-- Menghapus Prosedur Jenis Kelamin Pegawai
 -- DROP PROCEDURE sp_info_pgw_jnskel;
 
-DELIMITER ;;
-CREATE PROCEDURE IF NOT EXISTS sp_info_pgw_jnskel (
-	mencari_jns_kel VARCHAR(6)
-)
-BEGIN
-	SELECT 	nama_pegawai,
-			Jenis_kelamin
-	FROM 	vw_data_pegawai
-	WHERE Jenis_kelamin = mencari_jns_kel;
-END;;
-DELIMITER ;
+-- Membuat Prosedur Jenis Kelamin Pegawai
+-- DELIMITER ;;
+-- CREATE PROCEDURE IF NOT EXISTS sp_info_pgw_jnskel (
+-- 	m_jns_kel VARCHAR(6)
+-- )
+-- BEGIN
+-- 	SELECT 	nama_pegawai,
+-- 			Jenis_kelamin
+-- 	FROM 	vw_data_pegawai
+-- 	WHERE Jenis_kelamin = m_jns_kel;
+-- END;;
+-- DELIMITER ;
 
 -- -- -- Cara memanggil fungsi
-CALL sp_info_pgw_jnskel('PRIA');
-CALL sp_info_pgw_jnskel('WANITA');
+-- CALL sp_info_pgw_jnskel('PRIA');
+-- CALL sp_info_pgw_jnskel('WANITA');
 
 -- Cara lain sederhana memanggil fungsi hanya mengganti values 'WANITA'
 -- SELECT 		nama_pegawai,
