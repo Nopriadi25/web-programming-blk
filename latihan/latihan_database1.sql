@@ -11,12 +11,14 @@ CREATE TABLE IF NOT EXISTS sheet1 (
 -- 	('ON'),
 -- 	('OFF');
 
+-- Mendeklarasikan ON dan OFF pada kolom
 SELECT saklar_lampu AS 'Saklar Lampu',
 	IF(saklar_lampu='ON','NYALA','MATI') AS Status_lampu
 FROM sheet1;
 
--- SELECT saklar_lampu AS 'Nama Saklar Lampu'
--- 	COUNT(saklar_lampu) AS status_saklar_lampu
--- FROM sheet1
--- GROUP BY saklar_lampu
--- ORDER BY saklar_lampu ASC;
+-- Menghitung jumlah values pada kolom
+SELECT
+	COUNT(saklar_lampu)
+FROM sheet1
+GROUP BY saklar_lampu
+ORDER BY saklar_lampu ASC;
