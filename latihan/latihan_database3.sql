@@ -1,3 +1,4 @@
+-- Membuat Tabel Warga
 CREATE TABLE IF NOT EXISTS warga (
 	nama 			VARCHAR(6),
 	jenis_kelamin 	VARCHAR(6),
@@ -5,11 +6,29 @@ CREATE TABLE IF NOT EXISTS warga (
 	PRIMARY KEY (nama, jenis_kelamin, status)
 		);
 
--- CREATE VIEW vw_warga AS
--- -- SELECT *
--- -- FROM warga;
--- DROP VIEW IF EXISTS vw_seluruh_warga;
-SELECT 	nama,
+-- Memasukkan Values ke dalam tabel Warga
+-- INSERT INTO warga VALUES
+-- ("Amin", "pria", "sendiri"),
+-- ("Rahman", "pria", "kawin"),
+-- ("Luki", "pria", "cerai"),
+-- ("Dea", "wanita", "sendiri"),
+-- ("Yani", "wanita", "kawin"),
+-- ("Endah", "wanita", "cerai");
+
+-- Menghapus View Tabel vw_warga
+DROP VIEW vw_warga;
+
+-- Membuat View Tabel vw_warga
+CREATE VIEW IF NOT EXISTS vw_warga AS
+SELECT *
+FROM warga;
+
+-- Menghapus View Tabel vw_seluruh_warga
+-- DROP VIEW  vw_seluruh_warga;
+
+-- Membuat View Tabel vw_seluruh_warga
+CREATE VIEW vw_seluruh_warga AS
+SELECT	nama,
 		jenis_kelamin,
 		status,
 
@@ -45,16 +64,4 @@ ELSE
 			ELSE "JANDA"
 		END
 END AS KETERANGAN_CASE
-FROM warga;
-IF(jenis_kelamin="pria",
-		CASE status
-				WHEN "sendiri"	THEN "PERJAKA"
-				WHEN "kawin" 	THEN "MENIKAH"
-				ELSE "DUDA"
-			END
-		CASE status
-				WHEN "sendiri"	THEN "PERAWAN"
-				WHEN "kawin" 	THEN "MENIKAH"
-				ELSE "JANDA"
-			END		
-)	AS KETERANGAN_IF_CASE
+FROM vw_warga;
