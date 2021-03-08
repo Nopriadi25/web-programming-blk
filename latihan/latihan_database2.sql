@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS sheet2(
 	lampu_lalu_lintas VARCHAR(6) PRIMARY KEY
 );
 
--- Memasukkan values ke dalam tabel sheet 2
+-- Memasukkan values ke dalam tabel sheet2
 -- INSERT INTO sheet2 (lampu_lalu_lintas) 
 -- VALUES ("MERAH"), ("KUNING"), ("HIJAU");
 
