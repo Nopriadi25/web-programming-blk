@@ -17,13 +17,7 @@ CREATE TABLE  pegawai(
 -- Menghapus Primary Key
 -- DELETE FROM pegawai;
 
--- DELIMITER ;;
--- CREATE PROCEDURE IF NOT EXISTS sp_ins_pegawai ()
--- BEGIN
--- 	SELECT 	*
--- 	FROM 	pegawai;
--- END;;
--- DELIMITER ;
+----------------------------------------------------------------------------------------
 
 -- Menghapus Prosedur Insert pegawai
 -- DROP PROCEDURE sp_ins_pegawai;
@@ -86,6 +80,8 @@ DELIMITER ;
  CALL sp_ins_agama('Islam', '200901202015071004');
  CALL sp_ins_agama('Islam', '201507142019031002');
  CALL sp_ins_agama('Islam', '201411142020102003');
+
+----------------------------------------------------------------------------------------
 
 -- Menambah isi Tabel Pegawai
 -- INSERT INTO pegawai VALUES
