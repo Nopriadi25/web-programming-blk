@@ -125,27 +125,28 @@ CALL sp_update_agama2('197209172005011002', 1);
 -- CALL sp_update_agama2('201507142019031002', 4); 
 -- CALL sp_update_agama2('201411142020102003', 5);
 
+-- Menampilkan NIP, Nama, dan Agama dari tabel pegawai(kolom), tabel agama(kolom)
+SELECT nip_pegawai,
+	   nama_pegawai,
+	   list_agama
+FROM pegawai, tabel_agama
+WHERE pegawai.kode = tabel_agama.kode;
 
--- SELECT nip_pegawai,
--- 	   nama_pegawai,
--- 	   list_agama
--- FROM pegawai, tabel_agama
--- WHERE pegawai.kode = tabel_agama.kode;
+-- Membuat View Semua Agama
+CREATE VIEW vw_semua_agama AS
+SELECT nip,
+	   nama,
 
--- CREATE VIEW vw_semua_agama AS
--- SELECT nip,
--- 	   nama,
+	   DATE_FORMAT(CONCAT(LEFT(nip,8)), "%W, %d %M %Y") 
+	   AS tgl_lahir_2,
 
--- 	   DATE_FORMAT(CONCAT(LEFT(nip,8)), "%W, %d %M %Y") 
--- 	   AS tgl_lahir_2,
+	   DATE_FORMAT(CONCAT(MID(nip,9,6),"01"), "%M %Y") 
+	   AS tgl_angkat_2,
 
--- 	   DATE_FORMAT(CONCAT(MID(nip,9,6),"01"), "%M %Y") 
--- 	   AS tgl_angkat_2,
+	   IF(MID(nip,15,1)="1","Pria","Wanita") AS jns_kel,
+	   RIGHT(nip,3) AS nomer_urut,
+	   list_agama
 
--- 	   IF(MID(nip,15,1)="1","Pria","Wanita") AS jns_kel,
--- 	   RIGHT(nip,3) AS nomer_urut,
--- 	   list_agama
-
--- 	   FROM pegawai, tabel_agama
--- 	   WHERE pegawai.kode = tabel_agama.kode;
+	   FROM pegawai, tabel_agama
+	   WHERE pegawai.kode = tabel_agama.kode;
 
