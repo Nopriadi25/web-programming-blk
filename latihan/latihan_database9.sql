@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS agama(
 -- DROP TABLE agama;
 
 -- -- Menghapus Primary Key
--- DELETE FROM agama;
+DELETE FROM agama;
 
 -- Memasukkan values atau nilai ke dalam table
 -- INSERT INTO agama values
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS agama(
 -- Membuat Procedure sp_agama_pegawai;
 DELIMITER ;;
 
-CREATE PROCEDURE sp_agama_pegawai(
+CREATE PROCEDURE IF NOT EXISTS sp_agama_pegawai(
 	kode INT,
 	nama VARCHAR(12)
 )
@@ -43,3 +43,11 @@ BEGIN
 END;;	
 
 DELIMITER ;
+
+-- Memanggil fungsi sp_agama_pegawai dengan kode dan nama agama
+CALL sp_agama_pegawai(1,'Islam');
+CALL sp_agama_pegawai(2,'Katolik');
+CALL sp_agama_pegawai(3,'Protestan');
+CALL sp_agama_pegawai(4,'Hindu');
+CALL sp_agama_pegawai(5,'Buddha');
+CALL sp_agama_pegawai(6,'Kepercayaan');
