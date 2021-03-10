@@ -134,8 +134,8 @@ WHERE pegawai.kode = tabel_agama.kode;
 
 -- Membuat View Semua Agama
 CREATE VIEW vw_semua_agama AS
-SELECT nip,
-	   nama,
+SELECT nip_pegawai,
+	   nama_pegawai,
 
 	   DATE_FORMAT(CONCAT(LEFT(nip,8)), "%W, %d %M %Y") 
 	   AS tgl_lahir_2,
