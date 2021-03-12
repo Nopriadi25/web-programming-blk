@@ -137,16 +137,16 @@ CREATE VIEW vw_semua_agama AS
 SELECT nip_pegawai,
 	   nama_pegawai,
 
-	   DATE_FORMAT(CONCAT(LEFT(nip,8)), "%W, %d %M %Y") 
+	   DATE_FORMAT(CONCAT(LEFT(nip_pegawai,8)), "%W, %d %M %Y") 
 	   AS tgl_lahir_2,
 
-	   DATE_FORMAT(CONCAT(MID(nip,9,6),"01"), "%M %Y") 
+	   DATE_FORMAT(CONCAT(MID(nip_pegawai,9,6),"01"), "%M %Y") 
 	   AS tgl_angkat_2,
 
-	   IF(MID(nip,15,1)="1","Pria","Wanita") AS jns_kel,
-	   RIGHT(nip,3) AS nomer_urut,
+	   IF(MID(nip_pegawai,15,1)="1","Pria","Wanita") AS jns_kel,
+	   RIGHT(nip_pegawai,3) AS no_urut,
 	   list_agama
 
-	   FROM pegawai, tabel_agama
+FROM pegawai, tabel_agama
 	   WHERE pegawai.kode = tabel_agama.kode;
 
