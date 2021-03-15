@@ -21,11 +21,11 @@ CREATE TABLE IF NOT EXISTS pembeli(
 );
 
 INSERT INTO pembeli VALUES
-('BRG001', 'Toko Permata Indah', 'Jalan Mawar No.42', 'Mulyodadi', 'Bambanglipuro', 'Yogyakarta', 'Jawa Tengah');
--- ('BRG002', 'Toko Buku Belajar Bersama', 'Jalan Asia Afrika No. 17', 'Cijagra', 'Lengkong', 'Bandung', 'Jawa Barat'),
--- ('BRG003', 'Toko Intermedia', 'Jalan Cigantri No.112', 'Cimuning', 'Mustika Jaya', 'Bekasi', 'Jawa Barat'),
--- ('BRG004', 'Toko Kasih Murah', 'Jalan Teuku Wisnu No. 09', 'Palasari', 'Cileungsi', 'Bogor', 'Jawa Barat'),
--- ('BRG005', 'Toko Serba Mahal', 'Jalan Melati No.39', 'Ngagelrejo', 'Surabaya', 'Jawa Timur');
+('BRG001', 'Toko Permata Indah', 'Jalan Mawar No.42', 'Mulyodadi', 'Bambanglipuro', 'Yogyakarta', 'Jawa Tengah'),
+('BRG002', 'Toko Buku Belajar Bersama', 'Jalan Asia Afrika No. 17', 'Cijagra', 'Lengkong', 'Bandung', 'Jawa Barat'),
+('BRG003', 'Toko Intermedia', 'Jalan Cigantri No.112', 'Cimuning', 'Mustika Jaya', 'Bekasi', 'Jawa Barat'),
+('BRG004', 'Toko Kasih Murah', 'Jalan Teuku Wisnu No. 09', 'Palasari', 'Cileungsi', 'Bogor', 'Jawa Barat'),
+('BRG005', 'Toko Serba Mahal', 'Jalan Melati No.39', 'Ngagelrejo', 'Wonokromo', 'Surabaya', 'Jawa Timur');
 
 
 -- Tabel Pegawai
