@@ -11,6 +11,7 @@
       <p id="demo_text">Sebuah Paragraph</p>
       <button type="demo_btn" onclick="ubahText()">Ubah Text</button>
       <button type="" onclick="testWrite()">Delete All</button>
+      <button onclick="showAlert()">Show me</button>
 
       <!-- Javascript -->
         <script>
@@ -21,13 +22,17 @@
                     document.getElementById("demo_btn"). innerHTML='Kembali';
                 } else {
                     document.getElementById("demo_text").innerHTML = "Ini adalah text awal";
-                }  
-            }
+                }  alert(text);
+            } 
 
             function testWrite() {
                 document.write();
             }
-        </script>
+
+            function showAlert() {
+                alert("Hello");
+            }
+            </script>
 
   </body>
 </html>    
