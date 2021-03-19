@@ -1,0 +1,177 @@
+
+body {
+	font-family: sans-serif;
+
+}
+
+/*Navigation Bar*/
+.navbar {
+	width: 100%;
+	height: 65px;
+	background-color: #046C7D;
+	color: white;
+}
+
+.navbar ul {
+	list-style-type: none;
+	padding-right: 60px;
+	padding-top: 10px;
+	margin: 0;
+	overflow: hidden;
+}
+
+.navbar li {
+	display: inline;
+	float: right;
+	margin: 13px;
+}
+
+.navbar li a {
+	text-decoration: none;
+	color: white;
+	font-size: 17px;
+}
+
+.navbar li a:hover {
+	background-color: #30B4C9;
+}
+/*End of Navigation Bar*/
+
+
+/*Header */
+.header {
+	background-color: #1AA5BB;
+	width: 100%;
+	height: 600px;
+}
+
+.header img {
+	width: 35%;
+	float: right;
+	margin: 15px 50px 25px 50px;
+}
+
+.header h1 {
+	font-size: 45px;
+	margin-top: 150px;
+	margin-left: 235px;
+	position: absolute;
+	font-size: 50px;
+	color: white;
+	font-family: Calibri;
+}	
+
+.header p {
+	font-size: 20px;
+	margin-top: 220px;
+	margin-left: 237px;
+	position: absolute;
+	text-align: left;
+	font-size: 25px;
+	color: white;
+	font-family: Calibri;
+}
+
+.header button {
+	background-color: white;
+	color: #046C7D;
+	position: absolute;
+	margin-top: 210px;
+	margin-left: 237px;
+}
+
+/*Button*/
+.myButton {
+	outline: none;
+	background-color: #ffffff;
+	border-radius: 25px;
+	border:2px solid #ffffff;
+	display: inline-block;
+	cursor:pointer;
+	color:#0cc7be;
+	font-family: Calibri;
+	font-size: 20px;
+	font-weight: bold;
+	text-decoration: none;
+	margin-top: 280px;
+	margin-left: 237px;
+	padding: 7px 26px;
+	text-align: center;
+	position: relative;
+}
+
+.myButton:hover {
+	background-color: black;
+	border-radius: 25px;
+	transition: background-color 0.5s ease-out;
+}
+
+/*Container*/
+.container {
+	margin-top: 35px;
+	margin-left: 236px;
+}
+
+.container a {
+	text-decoration: none;
+	color: white;
+	padding-left: 10px;
+	line-height: 1;
+}
+/*End of Header*/
+
+/*Contents*/
+.contents {
+	margin-top: 75px;
+}
+.contents img {
+	width: 35%;
+	float: left;
+
+}
+
+.contents h2 {
+	font-size: 45px;
+	margin-bottom: 50px;
+	padding-top: 50px;
+}
+
+.contents p {
+	font-size: 25px;
+	margin-top: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 30px;
+}
+
+.contents strong {
+	color: gold;
+}
+/*End of Contents*/
+
+/*Another Contents*/
+.main {
+	margin-top: 300px;
+}
+
+.main h2 {
+	font-size: 45px;
+}
+
+.main img {
+	width: 30%;
+	align-items: right;
+	
+	float: right;
+}
+
+/*Footer*/
+footer {
+	background-color: #1AA5BB; 
+	width: 100%;
+	height: 50px;
+	font-size: 20px;
+	color: white;
+}
+
+/*End of Footer*/
