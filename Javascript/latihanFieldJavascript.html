@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dom Selection</title>
+</head>    
+<body>
+<input type="text" id="textinput" onkeyup="inputChange()"/>
+<p id="result"></p>
+
+<script>
+    function inputChange() {
+        const text = document.getElementById('textinput').value;
+
+        if(text.length > 10) {
+            alert('Hey that is too much characters!')
+        } else {
+            document.getElementById('result').innerHTML = text;
+        }
+    }
+</script>
+</body>  
+</html>   
