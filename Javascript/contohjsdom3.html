@@ -12,6 +12,7 @@
       <button type="demo_btn" onclick="ubahText()">Ubah Text</button>
       <button type="" onclick="testWrite()">Delete All</button>
       <button onclick="showAlert()">Show me</button>
+      <button onclick="showConsole()">Console</button>
 
       <!-- Javascript -->
         <script>
@@ -22,15 +23,20 @@
                     document.getElementById("demo_btn"). innerHTML='Kembali';
                 } else {
                     document.getElementById("demo_text").innerHTML = "Ini adalah text awal";
-                }  alert(text);
+                }  
             } 
 
             function testWrite() {
                 document.write();
+                alert("Yah hilang deh");
             }
 
             function showAlert() {
                 alert("Hello");
+            }
+
+            function showConsole() {
+                console.log ("Saya pusing");
             }
             </script>
 
