@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+      <h1>Ini adalah text awal</h1>
+      <p id="demo_text">Sebuah Paragraph</p>
+      <button type="demo_btn" onclick="ubahText()">Ubah Text</button>
+      <button type="" onclick="testWrite()">Delete All</button>
+
+      <!-- Javascript -->
+        <script>
+            function ubahText() {
+                var text = document.getElementById("demo_text").innerHTML
+                if(text == 'Ini adalah text awal') {
+                    document.getElementById("demo_text"). innerHTML='Setelah dimodif oleh DOM javascript';
+                    document.getElementById("demo_btn"). innerHTML='Kembali';
+                } else {
+                    document.getElementById("demo_text").innerHTML = "Ini adalah text awal";
+                }  
+            }
+
+            function testWrite() {
+                document.write();
+            }
+        </script>
+
+  </body>
+</html>    
