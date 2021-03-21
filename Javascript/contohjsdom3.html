@@ -10,6 +10,9 @@
       <h1>Ini adalah text awal</h1>
       <p id="demo_text">Sebuah Paragraph</p>
       <button type="demo_btn" onclick="ubahText()">Ubah Text</button>
+      <button type="" onclick="testWrite()">Delete All</button>
+      <button onclick="showAlert()">Show me</button>
+      <button onclick="showConsole()">Console</button>
 
       <!-- Javascript -->
         <script>
@@ -21,8 +24,21 @@
                 } else {
                     document.getElementById("demo_text").innerHTML = "Ini adalah text awal";
                 }  
+            } 
+
+            function testWrite() {
+                document.write();
+                alert("Yah hilang deh");
             }
-        </script>
+
+            function showAlert() {
+                alert("Hello");
+            }
+
+            function showConsole() {
+                console.log ("Saya pusing");
+            }
+            </script>
 
   </body>
 </html>    
