@@ -45,21 +45,38 @@
 
 
         <!-- FORM INPUT LUAS DAN KELILING LINGKARAN -->
+        <button onclick="showFormLingkaran()" style="">Show Form Lingkaran</button>
     <form name="formLingkaran" action="" method="POST">
         <h2>LUAS & KELILING LINGKARAN</h2>
             <input type="number" name="r" required min=0 placeholder="Masukkan nilai r">
             <input type="submit" name="hitungLuasLingkaranBtn" value="Hitung Luas">
             <input type="submit" name="hitungLuasLingkaranBtn" value="Hitung Keliling">
+            <button type="reset" onclick="resetNilai()">Reset</button>
             <br>
             <br>
             <?php
                 if(isset($_POST['hitungLuasLingkaranBtn'])) {
-                    echo "Luas Lingkaran dengan jari-jari ".$_POST['r']." adalah: ".luas_lingkaran($_POST['r']);
+                    echo "<div id='pesanLingkaran'>Luas Lingkaran dengan jari-jari ".$_POST['r']." adalah: ".luas_lingkaran($_POST['r']);
                 } echo "<br>";
                 if(isset($_POST['hitungLuasLingkaranBtn'])) {
                     echo "Keliling Lingkaran dengan jari-jari ".$_POST['r']." adalah: ".keliling_lingkaran($_POST['r']);
                 }
             ?>
+            <!-- Hide dan Show Tombol Fungsi dengan JS -->
+            <script>
+                function showFormLingkaran() {
+                    const display = document.getElementById('formLingkaran').style.display
+                    if(display == 'none') {
+                        display = 'block';
+                    }else {
+                        FormLingkaran.style.display = 'none'
+                    }
+                }
+
+                function resetNilai() {
+                    document.getElementById('pesanLingkaran').innerHTML = ''
+                }
+            </script>
     </form>
         <br><br>
 
@@ -95,5 +112,6 @@
             ?>
        </form>
             <br><br>
+            
 </body>
 </html>
