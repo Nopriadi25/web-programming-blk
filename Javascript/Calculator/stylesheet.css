@@ -1,0 +1,23 @@
+h3 {
+    text-align: center;
+    padding-top: 50px;
+}
+.card{
+    text-align: center;
+    width: 30rem;
+    margin: 0 auto;
+    padding-top: 35px;
+}
+#one, #two {
+    width: 100px;
+    margin: 0 auto;
+}
+
+#result {
+    width: 150px;
+    margin: 0 auto;
+}
+
+.operator {
+    padding-top: 20px;
+}
